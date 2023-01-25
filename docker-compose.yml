@@ -1,0 +1,75 @@
+version: "3.1"
+
+services:
+  app:
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_PORT=27017
+      - SERVER_SERVLET_CORS_ALLOWED_ORIGINS=*
+      - SERVER_SERVLET_CORS_ALLOWED_HEADERS=*
+      - SERVER_SERVLET_CORS_ALLOWED_METHODS=*
+    image: "app.jar"
+    ports:
+      - "8080:8080"
+    build: backend
+    container_name: app
+    networks:
+      network_all: {}
+    depends_on:
+      - postgresql
+      - mongodb
+    links:
+      - postgresql
+      - mongodb
+  angular:
+    build: angular-bookingApp-bigData-
+    ports:
+      - "4200:4200"
+    links:
+      - app
+    networks:
+      network_all: { }
+  postgresql:
+    image: postgres:latest
+    restart: always
+    container_name: postgresql
+    hostname: postgresql
+    networks:
+      network_all: {}
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=postgres
+    volumes:
+      - "./backend/src/main/resources/postgres/:/docker-entrypoint-initdb.d"
+      - "postgres-volume:/var/lib/postgresql/data"
+  adminer:
+    image: adminer
+    ports:
+      - 8020:8080
+    networks:
+      network_all: {}
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    restart: always
+    networks:
+      network_all: {}
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodb-data:/data/db"
+      - "./backend/src/main/resources/mongo/init.js:/docker-entrypoint-initdb.d/init.js"
+volumes:
+  mongodb-data:
+  postgres-volume:
+
+networks:
+  network_all: {}

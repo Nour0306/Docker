@@ -1,0 +1,167 @@
+/*.image{
+    height:40em; background-size:cover; width:auto;
+    background-position:50% 50%;
+}
+.background{
+    width: 100%;
+    height: 119%;
+    opacity: 0.9;
+}
+*/
+
+
+.hero {
+
+    background-size: cover;
+    background-position: center;
+    background-color: hsla(0, 0%, 0%, 0.7);
+    background-blend-mode: overlay;
+    display: grid;
+    place-items: center;
+    min-height: 600px;
+    text-align: center;
+    padding-top: 125px;
+  }
+  
+  .hero-title { margin-bottom: 20px; }
+  
+  .hero-text {
+    color: var(--white);
+    font-size: var(--fs-5);
+    margin-bottom: 40px;
+  }
+
+  
+.home{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url(../../../assets/back.jpg);
+	background-size: cover;
+	background-position: center;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	align-items: center;
+
+
+    background-repeat: no-repeat;
+
+    background-color: hsla(0, 0%, 0%, 0.7);
+    background-blend-mode: overlay;
+
+    place-items: center;
+    min-height: 600px;
+    text-align: center;
+    padding-top: 125px;
+}
+
+
+.home-text h1{
+	font-size: 30px;
+	line-height: 1.2;
+	color: white;
+    margin-top: -15rem;
+	letter-spacing: 4px;
+	margin-bottom: 20px;
+}
+.home-text p{
+	color: #ffffffbf;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 38px;
+	margin-bottom: 50px;
+}
+.home-btn{
+	display: inline-block;
+	font-size: 16px;
+	padding: 15px 30px;
+	background: #ffffffbf;
+	color: var(--main-color);
+	border-radius: 4px;
+	transition: ease .40s;
+}
+.home-btn:hover{
+	background: white;
+	transform: scale(1.1);
+}
+.homecontent
+{
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%,-50%);
+}
+.homecontent h1
+{
+    color: #ffffff;
+    font-size: 50px;
+}
+.homecontent a
+{
+    margin-top: 10px;
+}
+
+@media screen and (max-width:600px)
+{
+    .home img
+{
+    height: 700px;
+}
+    .homecontent h1
+{
+    font-size: 40px;        
+}
+}
+.subtitle{
+    margin-left: -21rem;
+    margin-top: 29px;
+    color: white;
+    font-size: 26px;
+    margin-bottom: 21px;
+}
+.buttons{
+    margin-left: -41rem;
+    margin-top: 18px;
+}
+
+
+/*
+.home img
+{
+    width: 100%;
+    height: auto;
+    object-position: center;
+    object-fit: cover;
+    background-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.homecontent
+{
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%,-50%);
+}
+.homecontent h1
+{
+    color: #ffffff;
+    font-size: 50px;
+}
+.homecontent a
+{
+    margin-top: 10px;
+}
+
+@media screen and (max-width:600px)
+{
+    .home img
+{
+    height: 700px;
+}
+    .homecontent h1
+{
+    font-size: 40px;        
+}
+}
+
+*/
